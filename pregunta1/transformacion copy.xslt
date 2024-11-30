@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
-    <xsl:param name="min_range" select="0"/> <!-- Filtro de autonomía mínima -->
-    <xsl:param name="type_filter" select="'Plug-in Hybrid Electric Vehicle (PHEV)'"/> <!--Filtro de tipo de vehículo-->
 
     <!-- Plantilla principal -->
     <xsl:template match="/">
         <html>
             <head>
-                <title>Vehículos Eléctricos - Filtrado</title>
+                <title>Vehículos Eléctricos - Datos Completos</title>
                 <style>
                     table { width: 100%; border-collapse: collapse; }
                     th, td { border: 1px solid black; padding: 8px; text-align: left; }
@@ -19,8 +17,6 @@
             </head>
             <body>
                 <h1 style="color: #003366;">Vehículos Eléctricos en USA</h1>
-                <!-- Formulario para filtros -->
-                
                 <table>
                     <thead>
                         <tr>
@@ -44,11 +40,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Filtrar datos según criterios -->
-                        <xsl:for-each select="/response/row/row[
-                            number(electric_range) &gt;= $min_range and 
-                            ev_type = $type_filter
-                        ]">
+                        <!-- Procesar y mostrar todos los datos -->
+                        <xsl:for-each select="/response/row/row">
                             <tr>
                                 <td><xsl:value-of select="vin_1_10"/></td>
                                 <td><xsl:value-of select="county"/></td>
