@@ -8,13 +8,14 @@
 <body>
     <h1>Filtrar Vehículos Eléctricos</h1>
     <form action="/filter" method="get">
-        <label for="min_range">Autonomía mínima (km):</label>
-        <input type="number" id="min_range" name="min_range" min="0" value="0">
-        <br>
-        <label for="type_filter">Tipo de Vehículo:</label>
+        
+   
+        <label for="type_filter">Año del Modelo:</label>
         <select id="type_filter" name="type_filter">
-            <option value="Plug-in Hybrid Electric Vehicle (PHEV)">PHEV</option>
-            <option value="Battery Electric Vehicle (BEV)">BEV</option>
+            <option value="">Todos</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
         </select>
         <br>
         <button type="submit">Filtrar</button>
