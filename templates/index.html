@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrar Vehículos Eléctricos</title>
+</head>
+<body>
+    <h1>Filtrar Vehículos Eléctricos</h1>
+    <form action="/filter" method="get">
+        <label for="min_range">Autonomía mínima (km):</label>
+        <input type="number" id="min_range" name="min_range" min="0" value="0">
+        <br>
+        <label for="type_filter">Tipo de Vehículo:</label>
+        <select id="type_filter" name="type_filter">
+            <option value="Plug-in Hybrid Electric Vehicle (PHEV)">PHEV</option>
+            <option value="Battery Electric Vehicle (BEV)">BEV</option>
+        </select>
+        <br>
+        <button type="submit">Filtrar</button>
+    </form>
+</body>
+</html>
