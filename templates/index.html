@@ -1,21 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtrar Vehículos Eléctricos</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Filtrar Vehículos Eléctricos   </title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            h1 {
+                text-align: center;
+                color: #444;
+            }
+            form {
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 400px;
+                width: 100%;
+            }
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+            input[list], select {
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 100%;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+            }
+            button {
+                background-color: #007BFF;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                width: 100%;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
 <body>
-    <h1>Filtrar Vehículos Eléctricos</h1>
-    <form action="/filter" method="get">
+    <h1 style="margin-bottom: 20px; text-align: left;">Filtrar Vehículos Eléctricos</h1>
+<form action="/filter" method="get">
+        <label for="county_filter">Condado:</label>
+        <input list="counties" id="county_filter" name="county_filter">
+        <datalist id="counties">
+            <option value="King">
+            <option value="Clark">
+            <option value="Klickitat">
+            <option value="Jefferson">
+            <option value="Thurston">
+            <option value="Snohomish">
+            <option value="Kitsap">
+            <option value="Island">
+            <option value="Cowlitz">
+            <option value="Yakima">
+            <option value="Walla Walla">
+            <option value="Chelan">
+            <option value="Kittitas">
+            <option value="Garfield">
+            <option value="Spokane">
+            <option value="Grant">
+            <option value="Skagit">
+            <option value="Whitman">
+            <option value="Stevens">
+            <option value="Clallam">
+        </datalist>
+        <br>
+        <label for="city_filter">Ciudad:</label>
+        <input list="cities" id="city_filter" name="city_filter">
+        <datalist id="cities">
+            <option value="Pullman">
+            <option value="Colville">
+            <option value="Milton">
+            <option value="Port Angeles">
+            <option value="Mabton">
+            <option value="Grandview">
+            <option value="Washougal">
+            <option value="Monroe">
+            <option value="Arlington">
+            <option value="Snohomish">
+            <option value="Stanwood">
+            <option value="Camano Island">
+            <option value="Forks">
+            <option value="Sequim">
+            <option value="Vancouver">
+            <option value="Ridgefield">
+            <option value="Brush Prairie">
+            <option value="Battle Ground">
+            <option value="Camas">
+            <option value="La Center">
+            <option value="Woodland">
+            <option value="Yacolt">
+            <option value="Kelso">
+            <option value="Kalama">
+            <option value="Longview">
+            <option value="Castle Rock">
+            <option value="Silverlake">
+            <option value="Ariel">
+            <option value="Goldendale">
+            <option value="White Salmon">
+            <option value="Bingen">
+            <option value="Brinnon">
+            <option value="Port Hadlock">
+            <option value="Port Townsend">
+            <option value="Nordland">
+            <option value="Port Ludlow">
+            <option value="Quilcene">
+            <option value="Chimacum">
+            <option value="Cheney">
+            <option value="Shoreline">
+            <option value="Seattle">
+            <option value="Burien">
+            <option value="Seatac">
+            <option value="Tukwila">
+            <option value="Lake Forest Park">
+            <option value="Medina">
+            <option value="Spokane">
+            <option value="Olympia">
+            <option value="Nine Mile Falls">
+            <option value="Woodway">
+            <option value="Bainbridge Island">
+            <option value="Selah">
+            <option value="Yakima">
+            <option value="Union Gap">
+            <option value="Moxee">
+            <option value="Walla Walla">
+            <option value="Zillah">
+            <option value="Pomeroy">
+            <option value="Touchet">
+            <option value="Toppenish">
+            <option value="Wapato">
+            <option value="Tieton">
+            <option value="Naches">
+            <option value="Leavenworth">
+            <option value="Ephrata">
+            <option value="Moses Lake">
+            <option value="Mattawa">
+            <option value="Olalla">
+            <option value="Bothell">
+            <option value="Poulsbo">
+            <option value="Rochester">
+            <option value="Mill Creek">
+            <option value="Silverdale">
+            <option value="Bremerton">
+            <option value="Everett">
+            <option value="Port Orchard">
+            <option value="Tumwater">
+            <option value="Lacey">
+            <option value="Kingston">
+            <option value="Oak Harbor">
+            <option value="Freeland">
+            <option value="Coupeville">
+            <option value="Lake Stevens">
+            <option value="Brier">
+            <option value="Burlington">
+            <option value="Rainier">
+            <option value="Lynnwood">
+            <option value="Anacortes">
+            <option value="Ronald">
+            <option value="Mount Vernon">
+            <option value="Edmonds">
+            <option value="Tenino">
+            <option value="Marysville">
+            <option value="Cle Elum">
+            <option value="Mukilteo">
+            <option value="Yelm">
+            <option value="Seabeck">
+            <option value="Keyport">
+            <option value="Langley">
+            <option value="Suquamish">
+            <option value="Bucoda">
+            <option value="Tulalip">
+            <option value="Bellevue">
+            <option value="Issaquah">
+            <option value="Mercer Island">
+            <option value="Des Moines">
+            <option value="Kirkland">
+            <option value="Sammamish">
+            <option value="Vashon">
+            <option value="Renton">
+            <option value="Auburn">
+            <option value="Redmond">
+            <option value="Kent">
+            <option value="Newcastle">
+            <option value="Woodinville">
+            <option value="Duvall">
+            <option value="Pacific">
+            <option value="Clyde Hill">
+            <option value="Federal Way">
+            <option value="North Bend">
+            <option value="Normandy Park">
+            <option value="Maple Valley">
+            <option value="Kenmore">
+            <option value="Snoqualmie">
+            <option value="Covington">
+            <option value="Beaux Arts">
+            <option value="Black Diamond">
+            <option value="Enumclaw">
+            <option value="Hunts Point">
+        </datalist>
+        <br>
+        <label for="state_filter">Estado:</label>
+        <select id="state_filter" name="state_filter">
+            <option value="">Todos</option>
+            <option value="WA">WA</option>
+            <option value="BC">BC</option>
+            <option value="AE">AE</option>
+        </select>
+        <br>
+        <label for="make_filter">Marca:</label>
+        <select id="make_filter" name="make_filter">
+            <option value="">Todos</option>
+            <option value="TESLA">TESLA</option>
+            <option value="NISSAN">NISSAN</option>
+            <option value="CHEVROLET">CHEVROLET</option>
+            <option value="TOYOTA">TOYOTA</option>
+            <option value="MITSUBISHI">MITSUBISHI</option>
+            <option value="FORD">FORD</option>
+            <option value="FIAT">FIAT</option>
+            <option value="SMART">SMART</option>
+            <option value="BMW">BMW</option>
+            <option value="CADILLAC">CADILLAC</option>
+            <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+            <option value="PORSCHE">PORSCHE</option>
+            <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+            <option value="KIA">KIA</option>
+            <option value="HYUNDAI">HYUNDAI</option>
+            <option value="VOLVO">VOLVO</option>
+            <option value="AUDI">AUDI</option>
+            <option value="CHRYSLER">CHRYSLER</option>
+            <option value="HONDA">HONDA</option>
+            <option value="MINI">MINI</option>
+            <option value="SUBARU">SUBARU</option>
+            <option value="JAGUAR">JAGUAR</option>
+            <option value="LAND ROVER">LAND ROVER</option>
+            <option value="LINCOLN">LINCOLN</option>
+            <option value="JEEP">JEEP</option>
+            <option value="POLESTAR">POLESTAR</option>
+            <option value="RIVIAN">RIVIAN</option>
+            <option value="LEXUS">LEXUS</option>
+            <option value="LUCID">LUCID</option>
+            <option value="MAZDA">MAZDA</option>
+            <option value="GENESIS">GENESIS</option>
+            <option value="FISKER">FISKER</option>
+            <option value="GMC">GMC</option>
+            <option value="ALFA ROMEO">ALFA ROMEO</option>
+            <option value="ACURA">ACURA</option>
+            <option value="ROLLS-ROYCE">ROLLS-ROYCE</option>
+            <option value="DODGE">DODGE</option>
+        </select>
+        <br>
+
         
-   
-        <label for="type_filter">Año del Modelo:</label>
-        <select id="type_filter" name="type_filter">
+        <label for="model_filter">Modelo:</label>
+        <select id="model_filter" name="model_filter">
+            <option value="">Todos</option>
+            <option value="MODEL Y">MODEL Y</option>
+            <option value="ROADSTER">ROADSTER</option>
+            <option value="LEAF">LEAF</option>
+            <option value="VOLT">VOLT</option>
+            <option value="MODEL S">MODEL S</option>
+            <option value="PRIUS PLUG-IN">PRIUS PLUG-IN</option>
+            <option value="I-MIEV">I-MIEV</option>
+            <option value="RAV4">RAV4</option>
+            <option value="C-MAX">C-MAX</option>
+            <option value="500">500</option>
+            <option value="FOCUS">FOCUS</option>
+            <option value="FUSION">FUSION</option>
+            <option value="FORTWO ELECTRIC DRIVE">FORTWO ELECTRIC DRIVE</option>
+            <option value="SPARK">SPARK</option>
+            <option value="I3">I3</option>
+            <option value="ELR">ELR</option>
+            <option value="B-CLASS">B-CLASS</option>
+            <option value="PANAMERA">PANAMERA</option>
+            <option value="I8">I8</option>
+            <option value="E-GOLF">E-GOLF</option>
+            <option value="SOUL">SOUL</option>
+            <option value="CAYENNE">CAYENNE</option>
+            <option value="SONATA">SONATA</option>
+            <option value="MODEL X">MODEL X</option>
+            <option value="XC90">XC90</option>
+            <option value="A3">A3</option>
+            <option value="X5">X5</option>
+            <option value="FORTWO">FORTWO</option>
+            <option value="BOLT EV">BOLT EV</option>
+            <option value="PRIUS PRIME">PRIUS PRIME</option>
+            <option value="OPTIMA">OPTIMA</option>
+            <option value="PACIFICA">PACIFICA</option>
+            <option value="330E">330E</option>
+            <option value="SOUL EV">SOUL EV</option>
+            <option value="IONIQ">IONIQ</option>
+            <option value="MODEL 3">MODEL 3</option>
+            <option value="NIRO">NIRO</option>
+            <option value="530E">530E</option>
+            <option value="XC60">XC60</option>
+            <option value="OUTLANDER">OUTLANDER</option>
+            <option value="CLARITY">CLARITY</option>
+            <option value="COUNTRYMAN">COUNTRYMAN</option>
+            <option value="GLE-CLASS">GLE-CLASS</option>
+            <option value="KONA">KONA</option>
+            <option value="E-TRON">E-TRON</option>
+            <option value="GLC-CLASS">GLC-CLASS</option>
+            <option value="S60">S60</option>
+            <option value="CROSSTREK">CROSSTREK</option>
+            <option value="EQ FORTWO">EQ FORTWO</option>
+            <option value="I-PACE">I-PACE</option>
+            <option value="X3">X3</option>
+            <option value="TAYCAN">TAYCAN</option>
+            <option value="HARDTOP">HARDTOP</option>
+            <option value="Q5 E">Q5 E</option>
+            <option value="RANGE ROVER SPORT">RANGE ROVER SPORT</option>
+            <option value="AVIATOR">AVIATOR</option>
+            <option value="RAV4 PRIME">RAV4 PRIME</option>
+            <option value="MUSTANG MACH-E">MUSTANG MACH-E</option>
+            <option value="WRANGLER">WRANGLER</option>
+            <option value="XC40">XC40</option>
+            <option value="ID.4">ID.4</option>
+            <option value="PS2">PS2</option>
+            <option value="KONA ELECTRIC">KONA ELECTRIC</option>
+            <option value="ESCAPE">ESCAPE</option>
+            <option value="E-TRON SPORTBACK">E-TRON SPORTBACK</option>
+            <option value="EV6">EV6</option>
+            <option value="R1T">R1T</option>
+            <option value="IX">IX</option>
+            <option value="CORSAIR">CORSAIR</option>
+            <option value="C40">C40</option>
+            <option value="TRANSIT">TRANSIT</option>
+            <option value="SORENTO">SORENTO</option>
+            <option value="IONIQ 5">IONIQ 5</option>
+            <option value="EQS-CLASS SEDAN">EQS-CLASS SEDAN</option>
+            <option value="F-150">F-150</option>
+            <option value="NX">NX</option>
+            <option value="BOLT EUV">BOLT EUV</option>
+            <option value="GRAND CHEROKEE">GRAND CHEROKEE</option>
+            <option value="I4">I4</option>
+            <option value="AIR">AIR</option>
+            <option value="Q5">Q5</option>
+            <option value="E-TRON GT">E-TRON GT</option>
+            <option value="SANTA FE">SANTA FE</option>
+            <option value="EQB-CLASS">EQB-CLASS</option>
+            <option value="R1S">R1S</option>
+            <option value="MX-30">MX-30</option>
+            <option value="Q4">Q4</option>
+            <option value="SOLTERRA">SOLTERRA</option>
+            <option value="SPORTAGE">SPORTAGE</option>
+            <option value="ARIYA">ARIYA</option>
+            <option value="IONIQ 6">IONIQ 6</option>
+            <option value="EQS-CLASS SUV">EQS-CLASS SUV</option>
+            <option value="BZ4X">BZ4X</option>
+            <option value="EQE-CLASS SUV">EQE-CLASS SUV</option>
+            <option value="RZ">RZ</option>
+            <option value="GV60">GV60</option>
+            <option value="I7">I7</option>
+            <option value="OCEAN">OCEAN</option>
+            <option value="TUCSON">TUCSON</option>
+            <option value="LYRIQ">LYRIQ</option>
+            <option value="EQE-CLASS SEDAN">EQE-CLASS SEDAN</option>
+            <option value="EV9">EV9</option>
+            <option value="BLAZER EV">BLAZER EV</option>
+            <option value="PROLOGUE">PROLOGUE</option>
+            <option value="Q8">Q8</option>
+            <option value="CYBERTRUCK">CYBERTRUCK</option>
+            <option value="RX">RX</option>
+            <option value="CX-90">CX-90</option>
+            <option value="EQUINOX EV">EQUINOX EV</option>
+            <option value="SILVERADO EV">SILVERADO EV</option>
+            <option value="V60">V60</option>
+            <option value="500E">500E</option>
+            <option value="HUMMER EV SUV">HUMMER EV SUV</option>
+            <option value="SQ8">SQ8</option>
+            <option value="ESPRINTER">ESPRINTER</option>
+            <option value="TONALE">TONALE</option>
+            <option value="XM">XM</option>
+            <option value="MACAN">MACAN</option>
+            <option value="ZDX">ZDX</option>
+            <option value="I5">I5</option>
+            <option value="SPECTRE">SPECTRE</option>
+            <option value="TX">TX</option>
+            <option value="S-CLASS">S-CLASS</option>
+            <option value="GV70">GV70</option>
+            <option value="HORNET">HORNET</option>
+            <option value="HUMMER EV PICKUP">HUMMER EV PICKUP</option>
+            <option value="IONIQ 5 N">IONIQ 5 N</option>
+            <option value="CX-70">CX-70</option>
+        </select>
+        <br>
+
+        <label for="model_year_filter">Año del Modelo:</label>
+        <select id="model_year_filter" name="model_year_filter">
             <option value="">Todos</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
+        </select>
+        <br>
+        <label for="cafv_type_filter">Tipo CAFV:</label>
+        <select id="cafv_type_filter" name="cafv_type_filter">
+            <option value="">Todos</option>
+            <option value="Clean Alternative Fuel Vehicle Eligible">Clean Alternative Fuel Vehicle Eligible</option>
+            <option value="Not eligible due to low battery range">Not eligible due to low battery range</option>
+            <option value="Eligibility unknown as battery range has not been researched">Eligibility unknown as battery range has not been researched</option>
+        </select>
+        <br>
+        <label for="type_filter">Tipo de Vehículo:</label>
+        <select id="type_filter" name="type_filter">
+            <option value="">Todos</option>
+            <option value="Plug-in Hybrid Electric Vehicle (PHEV)">Plug-in Hybrid Electric Vehicle (PHEV)</option>
+            <option value="Battery Electric Vehicle (BEV)">Battery Electric Vehicle (BEV)</option>
         </select>
         <br>
         <button type="submit">Filtrar</button>
